@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="output.css">
+  <title>Tailwind Sidebar</title>
+
+  <!-- Tailwind -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <script src="https://unpkg.com/akar-icons-fonts"></script>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .submenu {
+      transition: height 0.4s;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body class="h-screen m-0 text-white relative">
+
+  <!-- Background -->
+  <div class="absolute inset-0 -z-10 bg-[#073e77]">
+    <img src="bg.jpg"
+      class="w-full h-full object-cover brightness-[0.75] grayscale-[0.1] saturate-[1.5] object-[30%]" />
+  </div>
+
+  <!-- Sidebar -->
+  <aside
+    class="fixed top-6 left-6 h-fit  bottom-11 w-[260px] bg-white/10 backdrop-blur-2xl rounded-2xl p-4 flex flex-col gap-3">
+
+    <!-- Logo -->
+    <header class="flex items-center border-b border-white/10   p-3">
+      <h1 class="text-xl font-semibold cursor-pointer">AbuTalha</h1>
+    </header>
+
+
+    <!-- Menu -->
+    <ul class="grid gap-1">
+
+      <!-- Dashboard -->
+      <li>
+        <button onclick="gotoPage(this)" class="menu-btn flex items-center w-full px-4 bg-black/30 h-[50px] rounded-lg  backdrop-blur-xl text-white/90 transition  active:bg-black/40">
+
+          <i class="ai-dashboard text-xl mr-3"></i>
+          <p class="ml-auto">Dashboard</p>
+
+        </button>
+      </li>
+
+
+
+      <!-- Create -->
+      <li>
+        <button onclick="openSubmenu(this)" class="menu-btn flex  items-center w-full px-4 hover:bg-black/30 h-[50px] rounded-lg  text-white/90 transition  active:bg-black/40">
+
+          <!-- Left group -->
+          <div class="flex items-center gap-3">
+            <i class="ai-folder-add text-xl"></i>
+            <p>Create</p>
+          </div>
+
+          <!-- Right chevron -->
+          <i class="ai-chevron-down-small text-lg ml-auto transition"></i>
+
+        </button>
+
+
+        <!-- submenu -->
+        <div class="submenu mt-2 h-0">
+          <ul class="grid space-y-2 pl-9">
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Article
+              </button>
+            </li>
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Document
+              </button>
+            </li>
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Slides
+              </button>
+            </li>
+
+          </ul>
+        </div>
+
+      </li>
+
+      <!-- Account -->
+      <li>
+        <button onclick="openSubmenu(this)" class="menu-btn flex  items-center w-full px-4 hover:bg-black/30 h-[50px] rounded-lg  text-white/90 transition  active:bg-black/40">
+
+          <!-- Left group -->
+          <div class="flex items-center gap-3">
+            <i class="ai-lock-on text-xl"></i>
+            <p>Accounts</p>
+          </div>
+
+          <!-- Right chevron -->
+          <i class="ai-chevron-down-small text-lg ml-auto transition"></i>
+
+        </button>
+
+
+        <!-- submenu -->
+        <div class="submenu mt-2 h-0">
+          <ul class="grid space-y-2 pl-9">
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Article
+              </button>
+            </li>
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Document
+              </button>
+            </li>
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Slides
+              </button>
+            </li>
+
+          </ul>
+        </div>
+
+      </li>
+
+      <!-- Profile -->
+      <li>
+        <button onclick="openSubmenu(this)" class="menu-btn flex  items-center w-full px-4 hover:bg-black/30 h-[50px] rounded-lg  text-white/90 transition  active:bg-black/40">
+
+          <!-- Left group -->
+          <div class="flex items-center gap-3">
+            <i class="ai-person text-xl"></i>
+            <p>Accounts</p>
+          </div>
+
+          <!-- Right chevron -->
+          <i class="ai-chevron-down-small text-lg ml-auto transition"></i>
+
+        </button>
+
+
+        <!-- submenu -->
+        <div class="submenu mt-2 h-0">
+          <ul class="grid space-y-2 pl-9">
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Article
+              </button>
+            </li>
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Document
+              </button>
+            </li>
+
+            <li>
+              <button class="submenu-btn flex items-center gap-3 w-full 
+                     text-white/80 hover:text-white hover:bg-white/10 
+                     backdrop-blur-xl transition rounded-lg py-2 px-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                Slides
+              </button>
+            </li>
+
+          </ul>
+        </div>
+
+      </li>
+
+      <!-- Notifications -->
+      <li>
+        <button onclick="gotoPage(this)" class="menu-btn flex gap-3  items-center w-full px-4 hover:bg-black/30 h-[50px] rounded-lg  text-white/90 transition  active:bg-black/40">
+          <i class="ai-bell text-xl"></i>
+          <p class="">Notifications</p>
+        </button>
+      </li>
+
+      <!-- Products -->
+      <li>
+        <button onclick="gotoPage(this)" class="menu-btn flex gap-3  items-center w-full px-4 hover:bg-black/30 h-[50px] rounded-lg  text-white/90 transition  active:bg-black/40">
+          <i class="ai-cart text-xl"></i>
+          <p class="">Products</p>
+        </button>
+      </li>
+
+      <!-- Settings -->
+      <li>
+        <button onclick="gotoPage(this)" class="menu-btn flex gap-3  items-center w-full px-4 hover:bg-black/30 h-[50px] rounded-lg  text-white/90 transition  active:bg-black/40">
+          <i class="ai-gear text-xl"></i>
+          <p class="">Products</p>
+        </button>
+      </li>
+    </ul>
+
+  </aside>
+
+  <!-- JS -->
+  <script>
+    const subMenus = document.querySelectorAll(".submenu");
+    const buttons = document.querySelectorAll(".menu-btn");
+
+    const reset = () => {
+      buttons.forEach((b) => b.classList.remove("active"));
+      subMenus.forEach((m) => (m.style.height = 0));
+      document.querySelectorAll(".menu-btn i:last-child")
+        .forEach(i => i.classList.remove("rotate-180"));
+    };
+
+    const openSubmenu = (element) => {
+      const container = element.nextElementSibling;
+      const ul = container.querySelector("ul");
+
+      reset();
+      element.classList.add("active");
+
+      const icon = element.querySelector("i:last-child");
+
+      if (container.clientHeight === 0) {
+        container.style.height = ul.clientHeight + "px";
+        icon.classList.add("rotate-180");
+      }
+    };
+
+    const gotoPage = (element) => {
+      reset();
+      element.classList.add("active");
+    };
+  </script>
+
+</body>
+
+</html>
